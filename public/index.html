@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Classes</title>
+    <link rel="stylesheet" href="../fonts/css/all.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h3>Pseudo</h3>
+        </div>
+        
+        <nav id="nav">
+            <ul id="menu">
+                <li class="item">
+                    <a href="#"><span class="fa fa-home"></span>home</a>
+                </li>
+                <li class="item dropdown">
+                    <a href="#nestedItem"><span class="fa fa-toolbox"></span>service</a>
+                    <ul id="nestedItem">
+                        <li class="item">
+                            <a href="after_before.html">after before</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Basic</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">advance</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="item">
+                    <a href="#nestedItem2"><span class="fa fa-blog"></span>Interested</a>
+                    <ul id="nestedItem2">
+                        <li class="item">
+                            <a href="cardTag.html">Card Tag</a>
+                        </li>
+                        <li class="item">
+                            <a href="cards.html">Responsive Cards</a>
+                        </li>
+                        <li class="item">
+                            <a href="toolbox.html">Tool Boxes</a>
+                        </li>
+                        <li class="item">
+                            <a href="blockquote.html">Blogs</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="item">
+                    <a href="#"><span class="fa fa-envelope"></span>contact</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="toggle">
+            <a href="#nav"><span class="fa fa-bars"></span></a>
+        </div>
+    </header>
+
+    <main>
+        <div class="banner">
+            <img src="../assets/images/8.jpg" class="bg" id="bg1" alt="">
+            
+            <div class="slogs">
+                <h1>Picture is a combination of pixels</h1>
+                <h4>Digital design is like painting.</h4>
+                <p>Design is the fundamental soul of a man-made creation that ends up expressing itself in successive outer layers of the product or service.</p>
+            </div>
+        </div>
+
+        <section class="about" id="about">
+            <h1>About</h1>
+            <p>Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity). Begin your journey with VS Code with these introductory videos.</p>
+            <p>Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity). Begin your journey with VS Code with these introductory videos.</p>
+            <button onclick="openSub();">Contact with Mail</button>
+        </section>
+
+        <section class="services" id="services">
+            <h1>Services</h1>
+            <div class="card">
+                <div class="detail">
+                    <h3><span class="fab fa-blogger"></span>Blogging</h3>
+                    <p>Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity). Begin your journey with VS Code with these introductory videos.</p>
+                </div>
+                <div class="img">
+                    <img src="../assets/images/15.png" alt="">
+                </div>
+            </div>
+            <div class="card">
+                <div class="detail">
+                    <h3><span class="fa fa-palette"></span>Arts</h3>
+                    <p>Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity). Begin your journey with VS Code with these introductory videos.</p>
+                </div>
+                <div class="img">
+                    <img src="../assets/images/32.jpg" alt="">
+                </div>
+            </div>
+            <div class="card">
+                <div class="detail">
+                    <h3><span class="fa fa-camera"></span>Photography</h3>
+                    <p>Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity). Begin your journey with VS Code with these introductory videos.</p>
+                    <div class="img-deck">
+                        <img src="../assets/images/16.jpg" alt="">
+                        <img src="../assets/images/21.jpg" alt="">
+                        <img src="../assets/images/20.jpg" alt="">
+                        <img src="../assets/images/18.jpg" alt="">
+                    </div>
+                </div>
+                <div class="img">
+                    <img src="../assets/images/25.jpg" alt="">
+                </div>
+            </div>
+            <div class="card">
+                <div class="detail">
+                    <h3><span class="fa fa-leaf"></span>Creativity</h3>
+                    <p>Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity). Begin your journey with VS Code with these introductory videos.</p>
+                </div>
+                <div class="img">
+                    <img src="../assets/images/14.jpg" alt="">
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="row">
+            <div class="social">
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com"><span class="fab fa-facebook"></span>Facebook</a>
+                    </li>
+                    <li>
+                        <a href="http://www.twitter.com"><span class="fab fa-twitter"></span>Twitter</a>
+                    </li>
+                    <li>
+                        <a href="http://www.github.com"><span class="fab fa-github"></span>GitHub</a>
+                    </li>
+                    <li>
+                        <a href="http://www.youtube.com"><span class="fab fa-youtube"></span>YouTube</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="form">
+                <h3>Contact Us</h3>
+                <input type="email" name="subscribe">
+                <button type="submit">Subscribe</button>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>

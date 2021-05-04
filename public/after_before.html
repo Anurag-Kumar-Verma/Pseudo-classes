@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>after | before</title>
+    <style type="text/css">
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color:white;
+            scroll-behavior: smooth;
+        }
+        ul {
+            list-style: none;
+            margin: 10px;
+            text-align: center;
+            height: 150px;
+        }
+        ul li {
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            background-color: rgb(228, 225, 225);
+            margin: 5px 10px;
+            padding: 10px;
+            min-width: 100px;
+        }
+
+        .box {
+            margin: 50px auto;
+            padding: 20px;
+            width: 80%;
+            background-color: rgba(240, 236, 236, 0.559);
+            box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.1);
+            transition: all 0.5s ease;
+        }
+        .box:hover {
+            background-color: white;
+            box-shadow: 5px 5px 25px -2px rgba(0,0,0,0.2);
+            transition: all 0.5s ease;
+        }
+
+        h2 {
+            color: rgb(247, 60, 88);
+            padding: 10px 0px;
+        }
+        p {
+            color: gray;
+        }
+        code {
+            background-color: rgba(224, 173, 181, 0.363);
+            color: darkred;
+            padding: 5px;
+        }
+        li:hover {
+            background-color: rgba(156, 155, 155, 0.493);
+        }
+
+        /* same prperty for all li tags */
+        .tooltip::before,
+        .tooltip::after {
+            position: absolute;
+            opacity: 0;
+            transition: all 0.5s ease;
+            pointer-events: none;
+        }
+        .tooltip::before {
+            content: attr(data-content);
+            top: 50px;
+            left: 0;
+            right: 0;
+            padding: 20px 5px 10px;
+            display: block;
+            text-align: left;
+            border-radius: 5px;
+            box-shadow: 0 0 0px 1px rgb(156, 155, 155);
+        }
+        .tooltip::after {
+            content: '';
+            top: 43px;
+            left: 20px;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-top: 1px solid rgb(156, 155, 155);
+            border-right: 1px solid rgb(156, 155, 155);
+            border-top-right-radius: 2px;
+            transform: rotate(-45deg);
+        }
+
+        /* Properies for only first block */
+        .tooltip.fade::before {
+            transform: translate3d(0, -10px, 0);
+        }
+        .tooltip.fade::after {
+            transform: translate3d(0, -10px, 0) rotate(-45deg);
+        }
+        .tooltip.fade:hover::before,
+        .tooltip.fade:hover::after {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            transition: all 0.5s ease;
+        }
+        .tooltip.fade:hover::after {
+            transform: translate3d(0, 0, 0) rotate(-45deg);
+        }
+
+        /* second block */
+        .tooltip.expand::after {
+            transform: translateY(6px) rotate(-45deg);
+            background-color: rgb(25,25,25);
+            transition: all 0.1s ease-in-out;
+        }
+        .tooltip.expand::before {
+            background-color: rgb(26, 25, 25);
+            color: rgb(206, 204, 204);
+            transform: scale3d(.2, .2, 1);
+        }
+        .tooltip.expand:hover::before{
+            opacity: 1;
+            transform: scale3d(1,1,1);
+            /* filter: hue-rotate(180deg) invert(1); */
+        }
+        .tooltip.expand:hover::after {
+            opacity: 1;
+            transition: all 0.5s 0.3s ease-in-out;
+            transform: translateY(0px) rotate(-45deg);
+        }
+
+        /* Third block */
+        .tooltip.swing::after {
+            transform: rotate3d(0,0,1,60deg) translate3d(40px, 10px, 0px);
+        }
+        .tooltip.swing::before {
+            transform: translate3d(0, 30px, 0) rotate3d(0,0,1, 60deg);
+        }
+        .tooltip.swing:hover::before{
+            opacity: 1;
+            transform: translate3d(0,0,0) rotate3d(1,1,1, 0deg);
+        }
+        .tooltip.swing:hover::after {
+            opacity: 1;
+            transform: translate3d(0px, 0px, 0px) rotate(-45deg);
+        }
+
+        .act {
+            background-color: royalblue;
+            display: inline-block;
+            color: white;
+            margin: 5px 0;
+        }
+        .act input {
+            display: none;
+        }
+        label {
+            padding: 10px;
+            cursor: pointer;
+            display: block;
+        }
+        label.second {
+            display: none;
+        }
+        input:checked ~ label.first {
+            display: none;
+        }
+        input:checked ~ label.second {
+            display: block;
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+            background-color: white;
+            scroll-behavior: smooth;
+            border-radius: 20px;
+            /* background-color: teal; */
+        }
+        ::-webkit-scrollbar-thumb {
+            /* background-color: rgb(247, 60, 88); */
+            background-image: linear-gradient(transparent, rgb(247, 60, 88) 80%, transparent);
+            border-radius: 20px;
+            box-shadow: -2px 1px 5px rgba(0,0,0,0.5);
+        }
+        ::-webkit-scrollbar-track{
+            box-shadow: 2px 1px 5px rgba(0,0,0,0.5);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>Fade Effect</h2>
+        <p>We can use the value of <code>data-</code> attribute in the content of <code>::after | ::before</code> pseudo class.</p>
+        <ul>
+            <li class="tooltip fade" data-content="Hyper Text Markup Language">HTML</li>
+            <li class="tooltip fade" data-content="Cascading Style Sheet">CSS</li>
+            <li class="tooltip fade" data-content="JavaScript">JS</li>
+            <li class="tooltip fade" data-content="Java Query">jQuery</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h2>Expand Effect</h2>
+        <p><code>transition</code> is nothing but it's an effecting time and efecting delay time.</p>
+        <ul>
+            <li class="tooltip expand" data-content="Hyper Text Markup Language">HTML</li>
+            <li class="tooltip expand" data-content="Cascading Style Sheet">CSS</li>
+            <li class="tooltip expand" data-content="JavaScript">JS</li>
+            <li class="tooltip expand" data-content="Java Query">jQuery</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h2>Swing Effect</h2>
+        <p>This button is only for an example for how to use <code>content: ''</code> property in the <code>::after</code> pseudo class. &nbsp;And it's not a button. See the code.</p>
+        <div class="act">
+            <input type="checkbox" name="show" id="btn">
+            <label class="first" onclick="darkmode()" for="btn">Do you like me?</label>
+            <label class="second" onclick="normalmode()" for="btn">You liked me</label>
+        </div>
+        
+        <ul>
+            <li class="tooltip swing" data-content="Hyper Text Markup Language">HTML</li>
+            <li class="tooltip swing" data-content="Cascading Style Sheet">CSS</li>
+            <li class="tooltip swing" data-content="JavaScript">JS</li>
+            <li class="tooltip swing" data-content="Java Query">jQuery</li>
+        </ul>
+    </div>
+
+    <script>
+        function darkmode() {
+            document.body.style.filter = "hue-rotate(90deg) invert(0)";
+            // document.body.style.backgroundColor = "black"; //when hue-rotate(180deg) and invert(1)
+            // const para = document.querySelectorAll("p");
+            const headings = document.querySelectorAll("h2");
+            // const boxes = document.querySelectorAll(".box");
+            var i;
+
+            // for (i = 0; i < para.length; i++) {
+            //     para[i].style.color = "black";                
+            // }
+            for (i = 0; i < headings.length; i++) {
+                headings[i].style.color = "green";                
+            }
+            // for (i = 0; i < boxes.length; i++) {
+            //     boxes[i].style.fontSize = "1.2em";
+            //     boxes[i].style.fontWeight = "600";
+            //     boxes[i].querySelector('ul').style.height = "200px";
+            // }
+        }
+        function normalmode() {
+            document.body.style.filter = "hue-rotate(0deg) invert(0)";
+            // document.body.style.backgroundColor = "black"; //when hue-rotate(180deg) and invert(1)
+            // const para = document.querySelectorAll("p");
+            const headings = document.querySelectorAll("h2");
+            // const boxes = document.querySelectorAll(".box");
+            var i;
+
+            // for (i = 0; i < para.length; i++) {
+            //     para[i].style.color = "gray";                
+            // }
+            for (i = 0; i < headings.length; i++) {
+                headings[i].style.color = "rgb(247, 60, 88)";                
+            }
+            // for (i = 0; i < boxes.length; i++) {
+            //     boxes[i].style.fontSize = "1em";
+            //     boxes[i].style.fontWeight = "500";
+            //     boxes[i].querySelector('ul').style.height = "150px";
+            // }
+        }
+    </script>
+    
+</body>
+</html>

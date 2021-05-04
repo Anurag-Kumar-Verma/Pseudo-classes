@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="../fonts/css/all.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* background-image: linear-gradient(to right, skyblue, rgb(240, 48, 98)); */
+        }
+        .container {
+            display: grid;
+            place-items: center;
+            gap: 50px;
+        }
+        h1 {
+            margin: 50px 0px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h1 span {
+            position: relative;
+            padding: 10px 0px;
+        }
+        h1 span::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: 0;
+            border: 300px solid transparent;
+            border-top: 15px solid turquoise;
+            border-right: 0;
+            transform: skewX(-15deg);
+        }
+        h1 span::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: -26px;
+            border: 80px solid transparent;
+            border-right: 15px solid turquoise;
+            border-top: 0;
+            transform: skew(-25deg);
+        }
+        form {
+            width: 300px;
+            display: grid;
+            gap: 20px;
+            padding: 20px;
+            background-image: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.5)), url('../assets/images/8.jpg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.5);
+        }
+
+        h3 {
+            text-align: center;
+            font-weight: 100;
+            color: #30e9f4;
+            font-family: cursive;
+            line-height: 1.7;
+            text-decoration: underline;
+        }
+
+        .input-field {
+            width: 100%;
+            position: relative;
+            margin: 15px 0px;
+            color: turquoise;
+        }
+        label {
+            position: absolute;
+            top: 0;
+            left: 5px;
+            letter-spacing: 1px;
+            pointer-events: none;
+            opacity: 0.8;
+            transition: all 0.3s ease-out;
+        }
+        label i {
+            margin-right: 10px;
+        }
+        input {
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid turquoise;
+            width: 80%;
+            padding: 5px;
+            letter-spacing: 1px;
+            color: turquoise;
+            outline: none;
+            transition: all 0.3s ease-out;
+        }
+        input:focus ~ label,
+        input:valid ~ label {
+            transition: all 0.3s ease-out;
+            opacity: 1;
+            transform: translateY(-30px);
+        }
+
+        button {
+            width: 50%;
+            background-color: #03e9f4;
+            color: white;
+            letter-spacing: 5px;
+            font-size: 1.3em;
+            margin: 20px 0px;
+            padding: 10px 5px;
+            border-radius: 3px;
+            outline: none;
+            border: 1px solid #03e9f4;
+            transition: all 0.3s ease-out;
+            cursor: pointer;
+            text-shadow: 1px 1px 1px black;
+        }
+        button:hover,
+        button:focus {
+            box-shadow: 0px 0px 5px #03e9f4, 0px 0px 25px #03e9f4, 0px 0px 50px #30e9f4;
+            transition: all 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="title"><span>Login Here</span></h1>
+
+        <form action="#">
+            <h3>You're Welcome</h3>
+            <div class="input-field">
+                <input type="text" id="uname" required></input>
+                <label for="uname"><i class="fa fa-user"></i>Username</label>
+            </div>
+            <div class="input-field">
+                <input type="password" id="pass" required></input>
+                <label for="pass"><i class="fa fa-lock"></i>Password</label>
+            </div>
+
+            <button>Submit</button>
+        </form>
+    </div>
+    
+</body>
+</html>

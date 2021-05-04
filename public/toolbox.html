@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toolbox</title>
+    <link rel="stylesheet" href="../fonts/css/all.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            /* background-image: linear-gradient(to right,skyblue, rgb(245, 66, 110)); */
+            height: 90vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .nav {
+            background-color: gold;
+            border: 3px solid goldenrod;
+            display: inline-block;
+            position: fixed;
+            top: 20%;
+            left: 10px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .nav ul li {
+            position: relative;
+            list-style: none;
+            margin: 0;
+            padding: 10px;
+            background-color: black;
+            font-size: 1.5em;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .nav li:not(:last-child) {
+            margin-bottom: 5px;
+        }
+        .nav li::after {
+            content: attr(data-info);
+            font-size: 1rem;
+            position: absolute;
+            left: 100%;
+            transform: translate(50px, -50%);
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.5s ease;
+        }
+        .nav li::before {
+            content: '';
+            left: 100%;
+            transform: translate(45px, -50%) rotate(45deg);
+            width: 25px;
+            height: 25px;
+            transition: all 0.2s ease;
+        }
+        .nav li::before,
+        .nav li::after {
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            background-color: black;
+            visibility: hidden;
+        }
+        .nav li:hover::before,
+        .nav li:hover::after {
+            transform: translate(25px, -50%);
+            opacity: 1;
+            visibility: visible;
+            transition: all 0.5s ease;
+        }
+        .nav li:hover::before {
+            transition: all 0.6s 0.2s ease;
+            transform: translate(18px, -50%) rotate(45deg);
+        }
+        .social,
+        .social2 {
+            position: relative;
+            background-color: gold;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 10px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+        }
+        .social {filter: hue-rotate(80deg);}
+        a {
+            color: inherit;
+            display: block;
+            text-decoration: none;
+        }
+        .social ul,
+        .social2 ul {
+            /* color: #30e9f4; */
+            display: flex;
+            justify-content: space-evenly;
+            list-style: none;
+            /* flex-flow: row wrap; */
+        }
+        .social li {
+            padding: 20px 22px;
+            font-size: 1.8em;
+            position: relative;
+            z-index: 1;
+            border-radius: 50px;
+        }
+        .social li a::before,
+        .social li a::after {
+            position: absolute;
+            content: '';
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transition: all 0.3s linear;
+            z-index: -1;
+        }
+        .social li:hover a::after {
+            border-left: 4px solid;
+            border-right: 4px solid;
+            border-radius: 50%;
+            transform: skewX(20deg);
+            transition: all 0.3s linear;
+        }
+        .social li:hover a::before {
+            border-top: 4px solid;
+            border-bottom: 4px solid;
+            border-radius: 50%;
+            transform: skew(-20deg);
+            transition: all 0.3s linear;
+        }
+
+        .title {
+            text-align: center;
+            margin: 20px auto 40px;
+        }
+        h1 {
+            padding: 10px 0px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            position: relative;
+            display: inline-block;
+        }
+        h1::before {
+            content: '';
+            position: absolute;
+            top: 0px;
+            right: 0%;
+            border: 300px solid transparent;
+            border-top: 15px solid turquoise;
+            border-right: 0;
+            transform: skew(-15deg);
+            display: block;
+        }
+        h1::after {
+            content: '';
+            position: absolute;
+            top: 0px;
+            right: -20px;
+            border: 80px solid transparent;
+            border-top: 0;
+            transform: skewX(-35deg);
+            border-right: 15px solid turquoise;
+            display: block;
+        }
+        .social2 li {
+            font-size: 1.5em;
+            margin: 10px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            overflow: hidden;
+            /* background-color: white; */
+            border-radius: 50px;
+            box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            transition: all 0.5s ease-out;
+        }
+        .social2 li i {
+            display: inline-block;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color: white;
+            margin-right: 10px;
+        }
+        .social2 li span {text-shadow: 1px 0px 1px rgba(255,255,255,0.8);}
+        .social2 li:hover {
+            width: 200px;
+            transition: all 0.5s ease-out;
+        }
+        #fb i {
+            background-color: #214592;
+        }
+        #twt i {background-color: #1da1f2;}
+        #yt i {background-color: #f00;}
+        #insta i {background-color: #e1306c;}
+        #ln i {background-color: #1ad1f2;}
+
+        #fb span {color: #214592;}
+        #twt span {color: #1da1f2;}
+        #yt span {color: #f00;}
+        #insta span {color: #e1306c;}
+        #ln span {color: #1ad1f2;}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title">
+            <h1>Social Power</h1>
+        </div>
+
+        <div class="nav">
+            <ul>
+                <li data-info="Home"><span class="fa fa-home"></span></li>
+                <li data-info="Service"><span class="fa fa-tools"></span></li>
+                <li data-info="Dentist"><span class="fa fa-tooth"></span></li>
+                <li data-info="Nature"><span class="fa fa-leaf"></span></li>
+                <li data-info="Recycle"><span class="fa fa-recycle"></span></li>
+            </ul>
+        </div>
+
+        <div class="social">
+            <ul>
+                <li><a href="https://www.facebook.com"><span class="fab fa-facebook"></span></a></li>
+                <li><a href="https://www.twitter.com"><span class="fab fa-twitter"></span></a></li>
+                <li><a href="https://www.github.com"><span class="fab fa-github"></span></a></li>
+                <li><a href="https://www.dibbble.com"><span class="fab fa-dribbble"></span></a></li>
+                <li><a href="https://www.chrome.com"><span class="fab fa-chrome"></span></a></li>
+            </ul>
+        </div>
+
+        <div class="social2">
+            <ul>
+                <li id="fb"><a href="https://www.facebook.com">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                </a></li>
+                <li id="twt"><a href="https://www.twitter.com">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </a></li>
+                <li id="insta"><a href="https://www.instagram.com/__anurag_kumar.official__9493/" target="_self">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a></li>
+                <li id="yt"><a href="https://www.youtube.com">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </a></li>
+                <li id="ln"><a href="https://www.linkedin.com">
+                    <i class="fab fa-linkedin"></i>
+                    <span>Linkedin</span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>

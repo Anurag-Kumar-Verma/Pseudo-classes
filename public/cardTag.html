@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Tag</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h2 {
+            padding: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-flow: row wrap;
+            margin: 0px 20px;
+            padding: 20px;
+        }
+        .card {
+            width: 250px;
+            max-width: 400px;
+            height: 200px;
+            flex-grow: 1;
+            margin: 10px;
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #5898f1;
+            /* box-shadow: 0px 1px 5px rgba(0,0,0,0.7); */
+            transition: all 0.5s ease;
+            z-index: 1;
+        }
+        .card:hover {
+            /* transform: scale(1.051); */
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+            transition: all 0.5s ease;
+            filter: hue-rotate(30deg);
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            transform: scale(1.1);
+            transition: all 0.5s ease-in-out;
+        }
+        .card:hover img {
+            opacity: 0.5;
+            transform: scale(1);
+            transition: all 0.5s ease-in-out   
+        }
+        .tag {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: brown;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 10px;
+            border-bottom-left-radius: 5px;
+            pointer-events: none;
+            font-size: 1em;
+            /* box-shadow: -5px 3px 15px rgba(0,0,0,0.5); */
+        }
+
+        .overlay {
+            position: absolute;
+            background-image: linear-gradient(to bottom, #064ec9, #021b52);
+            top: 50%;
+            left: 25px;
+            right: 25px;
+            text-align: center;
+            transform-style: preserve-3d;
+            transition: all 0.5s ease-in-out;
+            transform: skew(-10deg) rotate(-12deg) translate(-150%, -50%);
+        }
+
+        h3.name {
+            /* background-color: rgb(82, 124, 248); */
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: white;
+            padding: 10px;
+        }
+        .card:hover .overlay {
+            opacity: 1;
+            transition: all 0.5s ease-in-out;
+            transform: translate(0%, -50%) rotate(-10deg) skew(-10deg);
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+            /* background-color: transparent; */
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: darkred;
+            background-image: linear-gradient(blue, rgb(240, 47, 95));
+            border-radius: 10px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+
+    <center><h2>Card Tag</h2></center>
+
+    <div class="container">
+        <div class="card">
+            <img src="../assets/images/coffeehouse2.jpg" alt="">
+            <div class="tag">
+                20% OFF
+            </div>
+            <div class="overlay">
+                <h3 class="name">Coffee House</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../assets/images/pic03.jpg" alt="">
+            <div class="tag">
+                Nature
+            </div>
+            <div class="overlay">
+                <h3 class="name">I Love Travel</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../assets/images/pexels-photo-955459.jpeg" alt="">
+            <div class="tag">
+                Beautiful Art
+            </div>
+            <div class="overlay">
+                <h3 class="name">Artist</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../assets/images/pexels-photo-955459.jpeg" alt="">
+            <div class="tag">
+                Beautiful Art
+            </div>
+            <div class="overlay">
+                <h3 class="name">Crafting</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../assets/images/pic01.jpg" alt="">
+            <div class="tag">
+                Nature
+            </div>
+            <div class="overlay">
+                <h3 class="name">Stay Friendly</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../assets/images/map.jpg" alt="">
+            <div class="tag">
+                Location
+            </div>
+            <div class="overlay">
+                <h3 class="name">Search Here</h3>
+            </div>
+        </div>
+    </div>
+    <!-- <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/COIe7o2gEwI/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="1" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote> -->
+
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/COLLqHmBoxj/"></blockquote> 
+
+    <!-- <iframe src="https://www.instagram.com/p/COLLqHmBoxj/" frameborder="0"></iframe> -->
+
+    <script async src="//www.instagram.com/embed.js"></script>
+</body>
+</html>
