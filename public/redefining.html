@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redefining Custom Property</title>
+    <style>
+        :root {
+            --color-black: #303030;
+            --color-cyan: #00ccff;
+            --color-pink: #ff0099;
+            --color-purple: #953fe3;
+            --color-white: #fff;
+        }
+        body {
+            font-family: cursive;
+            margin: 1.75rem;
+        }
+
+        h1 {
+            background-color: var(--color-black);
+            border-right: 0.5rem solid var(--color-cyan);
+            color: var(--color-white);
+            font-weight: 400;
+            font-size: 2.5rem;
+            margin-top: 1rem;
+            padding: 1rem;
+            width: 6ch;
+        }
+
+        .circle, .triangle, .square {
+            position: absolute;
+        }
+        .circle {
+            --circle-size: 45vw;
+
+            bottom: 0.5rem;
+            background-color: var(--color-purple);
+            border-radius: 100%;
+            height: var(--circle-size);
+            width: var(--circle-size);
+            right: 1rem;
+        }
+        .triangle {
+            --triangle-size: 13rem;
+
+            bottom: 2rem;
+            right: 19rem;
+            height: 0;
+            width: 0;
+            border-color: transparent transparent var(--color-pink) transparent;
+            border-width: 0 var(--triangle-size) calc(var(--triangle-size) * 2) var(--triangle-size);
+            border-style: solid;
+            transform: rotate(-4deg);
+        }
+        .square {
+            --color-cyan: top;
+            --square-size: 8rem;
+
+            background-color: var(--color-cyan);
+            border: 0.25rem dotted var(--color-white);
+            bottom: 8rem;
+            height: var(--square-size);
+            width: var(--square-size);
+            right: 13rem;
+            transform: rotate(3deg);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Don't play to type</h1>
+
+    <div class="circle"></div>
+    <div class="triangle"></div>
+    <div class="square"></div>
+    
+</body>
+</html>

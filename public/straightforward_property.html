@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS is a Strongly Typed Language</title>
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            height: calc(100vh - 6rem);
+            background-color: #351054;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: serif;
+            line-height: 1;
+            margin: 3rem;
+            padding: 0;
+        }
+
+        .banner {
+            border-style: potato;
+            border-color: #fbda00;
+            border-width: 1rem;
+            align-items: center;
+            background-color: #4f2581;
+            display: flex;
+            flex-direction: column;
+            outline: 0.75rem solid #4f2581;
+            padding: 1.5rem 1rem 2rem 1rem;
+        }
+        .title {
+            color: #fff;
+            font-size: 3rem;
+            font-style: italic;
+            font-weight: 900;
+            margin: 0;
+            text-align: center;
+        }
+        .instructions {
+            color: #fff38f;
+            font-size: 0.9rem;
+            letter-spacing: 0.1ch;
+            line-height: 1.3;
+            margin: 1rem 0 0 0;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        code {
+            color: #fbda00;
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="banner">
+        <h1 class="title">You're just my type</h1>
+        <p class="instructions">Turn on the lights by updating <code>border-style</code>'s value to <code>dotted</code></p>
+    </main>
+    
+</body>
+</html>
